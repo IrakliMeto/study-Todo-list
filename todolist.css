@@ -1,0 +1,152 @@
+body {
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.todo {
+  max-width: 500px;
+  height: auto;
+  width: 100%;
+}
+
+h1 {
+  text-align: center;
+  color: #172b4d;
+  font-size: 44px;
+  margin-bottom: 50px;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.buttons-holder{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.button {
+  padding: 10px 30px;
+  border: none;
+  outline: none;
+  background-color: #cadefc;
+  color: #0052cc;
+  opacity: 0.9;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+.input-field {
+  padding: 10px 20px;
+  outline: none;
+  border-radius: 3px;
+  background-color:#fafbfc;
+  color: #091e42;
+  text-align: center;
+  border: 1px solid #dfe1e6;
+  font-size: 14px;
+}
+
+.input-field::placeholder {
+  color: #091e42;
+}
+
+.items {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 0;
+}
+
+.item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  height: 100%;
+  max-height: 100px;
+  overflow-x: hidden;
+  color: #172b4d;
+  font-size: 16px;
+  line-height: 18px;
+  border: 1px solid white;
+  background-color: #f4f5f7;
+}
+
+.item-done {
+  position: relative;
+}
+
+.item-done::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 90%;
+  height: 100%;
+  background-color: #80808096;
+}
+
+.item-buttons-holder {
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+}
+
+.delete-button {
+  padding: 5px;
+  font-size: 30px;
+  color: red;
+  padding: 5px;
+  text-align: center;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.edit-button {
+  font-size: 16px;
+  color: gray;
+  padding: 5px;
+  text-align: center;
+  cursor: pointer;
+  z-index: 2;
+  position: relative;
+}
+
+.save-button {
+  padding: 5px;
+  font-size: 22px;
+  color: green;
+  cursor: pointer;
+}
+
+.todo-text {
+  width: 100%;
+  height: 100%;
+  margin-right: 20px;
+}
+
+.selected-todo-input {
+  margin-left: 20px;
+  width: 100%;
+  height: 100%;
+  outline: none;
+  border: none;
+  background-color: transparent;
+}
+
+.done-button {
+  color: green;
+  text-align: center;
+  padding: 5px;
+  cursor: pointer;
+}
