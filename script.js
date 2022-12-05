@@ -35,24 +35,34 @@ addButton.addEventListener('click', ()=> {
   render();
 });
 
+const createTodotext = (item) => {
+  const todoText = document.createElement('div');
+  todoText.classList.add('todo-text');
+  todoText.textContent = item.value;
+
+  return todoText;
+}
+
+function createButton(element, className, content) {
+  let button = document.createElement(element);
+  button.classList.add(className)
+  button.textContent = content;
+
+  return button;
+}
+
 
 function appendItem(item) {
   const todoItem = document.createElement('li');
   todoItem.classList.add('item');
   todoItem.setAttribute('id', `name${item.id}`);
-
-  const todoText = document.createElement('div');
-  todoText.classList.add('todo-text');
-  todoText.textContent = item.value;
-  todoItem.appendChild(todoText);
+  todoItem.appendChild(createTodotext(item));
 
   const itemButtonsHolder = document.createElement('div');
   itemButtonsHolder.classList.add('item-buttons-holder');
   todoItem.appendChild(itemButtonsHolder);
 
-  const deleteButton = document.createElement('span');
-  deleteButton.classList.add('delete-button')
-  deleteButton.textContent = '-';
+  const deleteButton = createButton('span', 'delete-button' ,'-')
   itemButtonsHolder.appendChild(deleteButton)
 
   deleteButton.addEventListener('click', () => {
@@ -62,9 +72,7 @@ function appendItem(item) {
     render();
   });
 
-  const editButton = document.createElement('span');
-  editButton.classList.add('edit-button')
-  editButton.textContent = '...'
+  const editButton = createButton('span', 'edit-button', '...')
   itemButtonsHolder.appendChild(editButton);
 
   editButton.addEventListener('click', () =>{
@@ -75,9 +83,7 @@ function appendItem(item) {
     }
   })
 
-  const doneButton = document.createElement('span');
-  doneButton.classList.add('done-button')
-  doneButton.textContent = 'V'
+  const doneButton = createButton('span', 'done-button', 'V')
   itemButtonsHolder.appendChild(doneButton);
 
   doneButton.addEventListener('click', () => {
@@ -85,7 +91,6 @@ function appendItem(item) {
     setLocalStorage();
   });
 
-  console.log(item.isDone, ' isdone');
   if(item.isDone) {
     todoItem.classList.add('item-done');
   }
@@ -93,6 +98,7 @@ function appendItem(item) {
   todoItem.setAttribute('identificator', item.id)
   container.appendChild(todoItem)
 }
+
 
 
 function removeItem(identificator) {
@@ -118,9 +124,7 @@ function editItem(identificator) {
 
   itemValue = todoInput.value;
   
-  const saveButton = document.createElement('span');
-  saveButton.classList.add('save-button');
-  saveButton.textContent = '+';
+  const saveButton = createButton('span', 'save-button', '+')
   selectedItem.appendChild(saveButton);
 
   saveButton.addEventListener('click', () => {
